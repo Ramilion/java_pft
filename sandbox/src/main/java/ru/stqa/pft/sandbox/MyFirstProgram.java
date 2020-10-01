@@ -9,11 +9,19 @@ public class MyFirstProgram{
 
 	Square s = new Square(5);
     System.out.println("Площадь квадрата со стороной "
-            + s.l + " = " + area(s));
+            + s.l + " = " + s.area());
 
     Rectangle r = new Rectangle(4,6);
     System.out.println("Площадь прямоугольника со сторонами " + r.a +
-            " и " + r.b + " = " + area(r));
+            " и " + r.b + " = " + r.area());
+
+    Point p1 = new Point(1, 3);
+
+    Point p2 = new Point(4,8);
+
+
+    System.out.println("Расстояние между точками p1 и p2 " + " = " + distance(p1, p2));
+
  }
 
  public static void hello(String somebody) {
@@ -21,10 +29,10 @@ public class MyFirstProgram{
    System.out.println("Hello, " + somebody + "!");
  }
 
- public static double area(Square s){
-   return s.l * s.l;
- }
-public static double area(Rectangle r) {
-    return r.a * r.b;
-}
+  public static double distance(Point p1, Point p2){
+    return(Math.sqrt((p2.x - p1.x) * (p2.x - p1.x) +
+            (p2.y - p1.y) * (p2.y - p1.y)));
+  }
+
+
 }
