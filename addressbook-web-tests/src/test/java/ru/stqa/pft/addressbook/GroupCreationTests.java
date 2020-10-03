@@ -17,6 +17,7 @@ public class GroupCreationTests {
 
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
+    System.setProperty("webdriver.gecko.driver","C:/Users/Po/geckodriver-v0.27.0-win64/geckodriver.exe");
     driver = new FirefoxDriver();
     baseUrl = "https://www.google.com/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
