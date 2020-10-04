@@ -3,7 +3,6 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.stqa.pft.addressbook.model.GroupData;
-import ru.stqa.pft.addressbook.model.ContactData;
 
 public class GroupHelper extends HelperBase {
 
@@ -44,48 +43,4 @@ public class GroupHelper extends HelperBase {
   public void submitGroupModification() {
     click(By.name("update"));
   }
-
-  public void createNewClass() {
-    click(By.linkText("add new"));
-  }
-
-  public void submitContactCreation() {
-      click(By.xpath("(//input[@name='submit'])[2]"));
-    }
-  public void fillContactForm(ContactData contactData) {
-    type(By.name("firstname"), contactData.getFirstname());
-    type(By.name("lastname"), contactData.getLastname());
-    type(By.name("address"), contactData.getAddress());
-    type(By.name("mobile"), contactData.getPhone());
-    type(By.name("email"), contactData.getEmail());
-    type(By.name("address2"), contactData.getAddress2());
-  }
-
-  public void type(By locator, String text) {
-    click(locator);
-    driver.findElement(locator).clear();
-    driver.findElement(locator).sendKeys(text);
-  }
-
-  public void selectContact() {
-    click(By.id("5"));
-  }
-
-  public void deleteSelectedContact() {
-    click(By.xpath("//input[@value='Delete']"));
-  }
-
-  public void confirmDelete() {
-    driver.switchTo().alert().accept();
-  }
-
-  public void initContactModification() {
-    click(By.xpath("//img[@alt='Edit']"));
-  }
-
-  public void submitContactModification() {
-    click(By.xpath("(//input[@name='update'])[2]"));
-  }
-
 }
-
