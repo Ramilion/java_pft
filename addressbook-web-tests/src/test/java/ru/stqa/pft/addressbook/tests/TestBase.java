@@ -6,9 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.BrowserType;
 import ru.stqa.pft.addressbook.appmanager.ApplicationManager;
 
+
 public class TestBase {
 
-  public ApplicationManager app = new ApplicationManager(BrowserType.IE);
+  public ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
   private WebDriver driver;
 
   @Before

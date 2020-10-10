@@ -29,8 +29,8 @@ public class ApplicationManager {
   }
 
   public void init() {
-    System.setProperty("webdriver.gecko.driver","C:/Users/Po/geckodriver-v0.27.0-win64/geckodriver.exe");
     if (browser.equals(BrowserType.FIREFOX)) {
+      System.setProperty("webdriver.gecko.driver","C:/Users/Po/geckodriver-v0.27.0-win64/geckodriver.exe");
       driver = new FirefoxDriver();
     } else  if (browser.equals(BrowserType.CHROME)) {
       driver = new ChromeDriver();
@@ -38,7 +38,7 @@ public class ApplicationManager {
       driver = new InternetExplorerDriver();
     }
     baseUrl = "https://www.google.com/";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     driver.get("http://localhost/addressbook/");
     groupHelper = new GroupHelper(driver);
     navigationHelper = new NavigationHelper(driver);

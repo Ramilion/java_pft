@@ -1,9 +1,11 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import ru.stqa.pft.addressbook.model.GroupData;
+import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 public class GroupHelper extends HelperBase {
 
@@ -52,13 +54,19 @@ public class GroupHelper extends HelperBase {
   public void submitContactCreation() {
       click(By.xpath("(//input[@name='submit'])[2]"));
     }
-  public void fillContactForm(ContactData contactData) {
+  public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("address"), contactData.getAddress());
     type(By.name("mobile"), contactData.getPhone());
     type(By.name("email"), contactData.getEmail());
     type(By.name("address2"), contactData.getAddress2());
+
+    if(creation){
+      new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+    } else {
+      Assert.assertFalse(isElementPreset(By.name("new_group")));
+    }
   }
 
   public void type(By locator, String text) {
