@@ -16,7 +16,7 @@ public class HelperBase {
     driver.findElement(locator).click();
   }
 
-  protected boolean isElementPreset(By locator) {
+  protected boolean isElementPresent(By locator) {
     try{
       driver.findElement(locator);
       return true;
