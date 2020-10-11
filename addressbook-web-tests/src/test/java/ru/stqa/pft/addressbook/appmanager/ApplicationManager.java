@@ -38,7 +38,7 @@ public class ApplicationManager {
       driver = new InternetExplorerDriver();
     }
     baseUrl = "https://www.google.com/";
-    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     driver.get("http://localhost/addressbook/");
     groupHelper = new GroupHelper(driver);
     navigationHelper = new NavigationHelper(driver);
